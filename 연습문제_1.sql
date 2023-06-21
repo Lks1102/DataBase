@@ -73,97 +73,128 @@ INSERT INTO `Order` VALUES(10,'c107', 6, 1, '2022-07-05 14:21:03');
 
 #실습1-4
 
-SELECT * FROM `customer`;
+SELECT *
+	FROM `customer`;
 
 #실습1-5
 
-SELECT `custid`, `name`, `hp` FROM `customer`;
+SELECT `custid`, `name`, `hp`
+	FROM `customer`;
 
 #실습1-6
 
-SELECT * FROM `product`;
+SELECT *
+	FROM `product`;
 
 #실습1-7
 
-SELECT `company` FROM `product`;
+SELECT `company`
+	FROM `product`;
 
 #실습1-8
 
-SELECT DISTINCT `company` FROM `product`;
-# Distinct 중복제거
+SELECT DISTINCT `company`
+	FROM `product`;
+# Distinct 중복없이
+
 #실습1-9
 
-SELECT `prodName`, `price` FROM `product`;
+SELECT `prodName`, `price`
+FROM `product`;
 
 #실습1-10
 
-SELECT `prodName`, `price`+500 AS `조정단가` FROM `product`;
+SELECT `prodName`, `price`+500 AS `조정단가`
+FROM `product`;
 
 #실습1-11
 
-SELECT `prodName`, `stock`, `price` FROM `product` WHERE`company` ='오리온';
+SELECT `prodName`, `stock`, `price`
+FROM `product`
+WHERE`company` ='오리온';
 
 #실습1-12
 
-SELECT `orderProduct`, `orderCount`, `orderDate` FROM `order` WHERE`orderId`='c102';
+SELECT `orderProduct`, `orderCount`, `orderDate`
+FROM `order`
+WHERE`orderId`='c102';
 
 #실습1-13
 
 SELECT `orderProduct`, `orderCount`, `orderDate` 
-FROM `order` WHERE`orderId`='c102' AND `orderCount` >= 2;
+	FROM `order`
+		WHERE`orderId`='c102' AND `orderCount` >= 2;
 
 #실습1-14
 
-SELECT * FROM `product` 
-	WHERE`price` BETWEEN 1000 AND 2000;
+SELECT *
+	FROM `product` 
+		WHERE`price` BETWEEN 1000 AND 2000;
 
 #실습1-15
 
 SELECT `custid`, `name`, `hp`, `addr`
-FROM `Customer` WHERE`name` LIKE '김%';
+	FROM `Customer`
+		WHERE`name` LIKE '김%';
 
 #실습1-16
 
 SELECT `custid`, `name`, `hp`, `addr`
-FROM `Customer` WHERE`name` LIKE '__';
+	FROM `Customer`
+		WHERE`name` LIKE '__';
 
 #실습1-17
 
-SELECT * FROM `customer` WHERE `hp` IS NULL;
+SELECT *
+	FROM `customer`
+		WHERE `hp` IS NULL;
 
 #실습1-18
 
-SELECT * FROM `customer` WHERE `addr` IS NOT NULL;
+SELECT *
+	FROM `customer`
+		WHERE `addr` IS NOT NULL;
 
 #실습1-19
 
-SELECT * FROM `customer` WHERE`rdate` order BY `rdate` ASC;
+SELECT *
+	FROM `customer`
+		WHERE`rdate`
+			order BY `rdate` ASC;
 
 #실습1-20
 
-SELECT * FROM `Order` WHERE `orderCount` >= 3
-order BY `orderCount` DESC, `orderProduct` ASC;
+SELECT *
+	FROM `Order`
+		WHERE `orderCount` >= 3
+			order BY `orderCount` DESC, `orderProduct` ASC;
 
 #실습1-21
 
-SELECT AVG(`price`) FROM `product`;
+SELECT AVG(`price`)
+	FROM `product`;
 
 #실습1-22
 
-SELECT SUM(`stock`) AS `재고량 합계` FROM `product` WHERE `company`='농심';
+SELECT SUM(`stock`) AS `재고량 합계`
+	FROM `product`
+		WHERE `company`='농심';
 
 #실습1-23
 
-SELECT COUNT(`custid`) AS `고객수` FROM `customer`;
+SELECT COUNT(`custid`) AS `고객수`
+	FROM `customer`;
 
 #실습1-24
 
-SELECT COUNT(DISTINCT `company`) AS `제조업체 수` FROM `product`;
+SELECT COUNT(DISTINCT `company`) AS `제조업체 수`
+	FROM `product`;
 
 #실습1-25
 
-SELECT `orderProduct` AS `주문 상품번호`, SUM(`orderCount`) AS `총 주문수량` FROM `order` GROUP BY `orderProduct`
-order BY `주문 상품번호`;
+SELECT `orderProduct` AS `주문 상품번호`, SUM(`orderCount`) AS `총 주문수량`
+	FROM `order` GROUP BY `orderProduct`
+		order BY `주문 상품번호`;
 
 #실습1-26
 
